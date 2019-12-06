@@ -10,10 +10,10 @@ const nMonths = 3
 const Dashboard = () => {
   const [reports, setReports] = useState([])
   const [newReporter, setNewReporter] = useState('')
+  const REPORTERS_API = process.env.REPORTERS_API
 
   const fetchReporters = () => {
-    return fetch(`http://localhost:3000/api/report?nMonths=${nMonths}`)
-        .then(res => res.json())
+    return fetch(`${REPORTERS_API}${nMonths}`).then(res => res.json())
   }
 
   useEffect(() => {
